@@ -1,2 +1,3 @@
-# GreenSustainAbility-
-GreenSustainAbility is an online application for environmental management that helps companies monitor and improve their performance according to ISO 14001 standards. Track incidents, key indicators, audits, emissions and carbon footprint. Improve your environmental commitment with GreenSustainAbility
+# GreenSustainAbility
+
+GreenSustainAbility is an advanced online solution for environmental management. This intuitive and user-friendly app helps you monitor and improve your environmental performance by following ISO 14001 standards. With GreenSustainAbility, you can track environmental incidents, key indicators, environmental audits, emissions data and carbon footprint. Join the community of environmentally conscious companies now and improve your performance with GreenSustainAbility
