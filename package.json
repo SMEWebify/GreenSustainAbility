@@ -1,0 +1,26 @@
+{
+    "private": true,
+    "scripts": {
+        "scss": "node-sass resources/scss -o css",
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "axios": "^0.21",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "resolve-url-loader": "^4.0.0",
+        "sass": "^1.45.0",
+        "sass-loader": "^12.4.0"
+    },
+    "dependencies": {
+        "perfect-scrollbar": "^1.5.5",
+        "async": ">=2.6.4"
+    }
+}
