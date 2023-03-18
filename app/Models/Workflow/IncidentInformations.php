@@ -2,8 +2,13 @@
 
 namespace App\Models\Workflow;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Workflow\MeasuresTaken;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Workflow\FollowUpActions;
+use App\Models\Workflow\ImpactAssessment;
+use App\Models\Workflow\RootCauseAnalysis;
+use App\Models\Workflow\StakeholderInformation;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class IncidentInformations extends Model
 {
@@ -27,7 +32,7 @@ class IncidentInformations extends Model
 
     public function followUp()
     {
-        return $this->hasMany(FollowUp::class, 'incident_id');
+        return $this->hasMany(FollowUpActions::class, 'incident_id');
     }
 
     public function stakeholders()

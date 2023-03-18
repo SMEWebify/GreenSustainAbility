@@ -2,8 +2,9 @@
 
 namespace App\Models\Workflow;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Workflow\IncidentInformations;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class FollowUpActions extends Model
 {
@@ -19,6 +20,6 @@ class FollowUpActions extends Model
 
     public function incidentInformation()
     {
-        return $this->belongsTo(IncidentInformation::class, 'incident_id');
+        return $this->belongsTo(IncidentInformations::class, 'incident_id');
     }
 }
