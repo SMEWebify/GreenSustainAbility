@@ -15,4 +15,18 @@ class UserManagement extends Component
             'Users' => $Users,
         ]);
     }
+
+    public function invalide($id){
+        // Update line
+        User::where('id',$id)->update(['validate'=>0]);
+
+        session()->flash('success','User unvalidate successfully');
+    }
+
+    public function valide($id){
+        // Update line
+        User::where('id',$id)->update(['validate'=>1]);
+
+        session()->flash('success','User validate successfully');
+    }
 }

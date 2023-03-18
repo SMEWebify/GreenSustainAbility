@@ -1,4 +1,5 @@
 <div class="main-content">
+    @include('includes.alert-result')
     <div class="row">
         <div class="col-12">
             <div class="card mb-4 mx-4">
@@ -46,29 +47,50 @@
                                     </td>
                                     <td>
                                         <div>
-                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                            <img src="../assets/img/profiles/{{ $User->GetPictureProfile() }}" class="avatar avatar-sm me-3">
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $User->name }}</p>
+                                        @if ($User->validate == 0)
+                                            <p class="text-xs font-weight-bold mb-0"><del>{{ $User->name }}</del></p>
+                                        @else
+                                            <p class="text-xs font-weight-bold mb-0"> {{ $User->name }}</p>
+                                        @endif
+                                        
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $User->email }}</p>
+                                        @if ($User->validate == 0)
+                                            <p class="text-xs font-weight-bold mb-0"><del>{{ $User->email }}</del></p>
+                                        @else
+                                            <p class="text-xs font-weight-bold mb-0">{{ $User->email }}</p>
+                                        @endif
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Admin</p>
+                                        @if ($User->validate == 0)
+                                            <p class="text-xs font-weight-bold mb-0"><del>Admin</del></p>
+                                        @else
+                                            <p class="text-xs font-weight-bold mb-0">Admin</p>
+                                        @endif
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">{{ $User->GetPrettyCreatedAttribute() }} </span>
+                                        @if ($User->validate == 0)
+                                            <span class="text-secondary text-xs font-weight-bold"><del>{{ $User->GetPrettyCreatedAttribute() }}</del></span>
+                                        @else
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $User->GetPrettyCreatedAttribute() }} </span>
+                                        @endif
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" class="mx-3 " data-bs-toggle="tooltip"
-                                            data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary text-info"></i>
+                                        @if ($User->validate == 0)
+                                        <a href="#" wire:click="valide({{ $User->id }})" class="mx-3 " data-bs-toggle="tooltip"
+                                            data-bs-original-title="Valide user">
+                                            <i class="cursor-pointer  fas fa-user-check text-success"></i>
                                         </a>
-                                        <span>
-                                            <i class="cursor-pointer fas fa-trash text-danger"></i>
-                                        </span>
+                                        @else
+                                        <a href="#" wire:click="invalide({{ $User->id }})" class="mx-3 " data-bs-toggle="tooltip"
+                                            data-bs-original-title="Invalide user">
+                                            <i class="cursor-pointer fas fa-user-alt-slash text-danger"></i>
+                                        </a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

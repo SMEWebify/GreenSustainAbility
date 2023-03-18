@@ -5,7 +5,7 @@
             <div class="row gx-4" >
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="../assets/img/bruce-mars.jpg" alt="..." class="w-100 border-radius-lg shadow-sm">
+                        <img src="../assets/img/profiles/<?php echo e(auth()->user()->GetPictureProfile()); ?>" alt="..." class="w-100 border-radius-lg shadow-sm">
                     </div>
                 </div>
                 <div class="col-auto my-auto">

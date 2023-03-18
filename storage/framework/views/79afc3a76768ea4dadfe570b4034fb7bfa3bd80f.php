@@ -1,4 +1,5 @@
 <div class="main-content">
+    <?php echo $__env->make('includes.alert-result', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="row">
         <div class="col-12">
             <div class="card mb-4 mx-4">
@@ -46,29 +47,50 @@
                                     </td>
                                     <td>
                                         <div>
-                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                            <img src="../assets/img/profiles/<?php echo e($User->GetPictureProfile()); ?>" class="avatar avatar-sm me-3">
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($User->name); ?></p>
+                                        <?php if($User->validate == 0): ?>
+                                            <p class="text-xs font-weight-bold mb-0"><del><?php echo e($User->name); ?></del></p>
+                                        <?php else: ?>
+                                            <p class="text-xs font-weight-bold mb-0"> <?php echo e($User->name); ?></p>
+                                        <?php endif; ?>
+                                        
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($User->email); ?></p>
+                                        <?php if($User->validate == 0): ?>
+                                            <p class="text-xs font-weight-bold mb-0"><del><?php echo e($User->email); ?></del></p>
+                                        <?php else: ?>
+                                            <p class="text-xs font-weight-bold mb-0"><?php echo e($User->email); ?></p>
+                                        <?php endif; ?>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Admin</p>
+                                        <?php if($User->validate == 0): ?>
+                                            <p class="text-xs font-weight-bold mb-0"><del>Admin</del></p>
+                                        <?php else: ?>
+                                            <p class="text-xs font-weight-bold mb-0">Admin</p>
+                                        <?php endif; ?>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold"><?php echo e($User->GetPrettyCreatedAttribute()); ?> </span>
+                                        <?php if($User->validate == 0): ?>
+                                            <span class="text-secondary text-xs font-weight-bold"><del><?php echo e($User->GetPrettyCreatedAttribute()); ?></del></span>
+                                        <?php else: ?>
+                                            <span class="text-secondary text-xs font-weight-bold"><?php echo e($User->GetPrettyCreatedAttribute()); ?> </span>
+                                        <?php endif; ?>
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" class="mx-3 " data-bs-toggle="tooltip"
-                                            data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary text-info"></i>
+                                        <?php if($User->validate == 0): ?>
+                                        <a href="#" wire:click="valide(<?php echo e($User->id); ?>)" class="mx-3 " data-bs-toggle="tooltip"
+                                            data-bs-original-title="Valide user">
+                                            <i class="cursor-pointer  fas fa-user-check text-success"></i>
                                         </a>
-                                        <span>
-                                            <i class="cursor-pointer fas fa-trash text-danger"></i>
-                                        </span>
+                                        <?php else: ?>
+                                        <a href="#" wire:click="invalide(<?php echo e($User->id); ?>)" class="mx-3 " data-bs-toggle="tooltip"
+                                            data-bs-original-title="Invalide user">
+                                            <i class="cursor-pointer fas fa-user-alt-slash text-danger"></i>
+                                        </a>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
