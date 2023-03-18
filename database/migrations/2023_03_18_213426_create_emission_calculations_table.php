@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('root_cause_analyses', function (Blueprint $table) {
+        Schema::create('emission_calculations', function (Blueprint $table) {
             $table->id();
-            $table->foreign('incident_id')->references('id')->on('incident_information');
-            $table->text('root_cause_analysis');
+            $table->date('calculation_date');
+            $table->string('emission_type');
+            $table->float('emission_quantity');
+            $table->string('calculation_method');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('root_cause_analyses');
+        Schema::dropIfExists('emission_calculations');
     }
 };

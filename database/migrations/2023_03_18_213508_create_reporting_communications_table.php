@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('root_cause_analyses', function (Blueprint $table) {
+        Schema::create('reporting_communications', function (Blueprint $table) {
             $table->id();
-            $table->foreign('incident_id')->references('id')->on('incident_information');
-            $table->text('root_cause_analysis');
+            $table->date('report_date');
+            $table->string('emission_type');
+            $table->float('emission_quantity');
+            $table->string('report_type');
+            $table->string('communication_target');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('root_cause_analyses');
+        Schema::dropIfExists('reporting_communications');
     }
 };
