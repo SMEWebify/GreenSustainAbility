@@ -10,15 +10,15 @@ class RootCauseAnalysis extends Model
 {
     use HasFactory;
 
-    protected $table = 'root_cause_analysis';
+    protected $table = 'root_cause_analyses';
 
     protected $fillable = [
-        'incident_id',
+        'incident_informations_id',
         'root_cause_analysis'
     ];
 
     public function incidentInformation()
     {
-        return $this->belongsTo(IncidentInformations::class, 'incident_id');
+        return $this->belongsTo(IncidentInformations::class, 'incident_informations_id');
     }
 }

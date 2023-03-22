@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('documentation_related', function (Blueprint $table) {
             $table->id();
             $table->foreignId('incident_id')->constrained('incident_informations');
-            $table->string('document_type');
-            $table->string('file');
+            $table->string('original_file_name');
+            $table->string('name');
+            $table->string('type');
+            $table->string('size');
             $table->timestamps();
         });
     }

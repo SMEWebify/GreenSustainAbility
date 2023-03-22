@@ -13,7 +13,7 @@ class StakeholderInformation extends Model
     protected $table = 'stakeholder_information';
 
     protected $fillable = [
-        'incident_id',
+        'incident_informations_id',
         'name',
         'contact_details',
         'authorities_notified'
@@ -21,6 +21,6 @@ class StakeholderInformation extends Model
 
     public function incidentInformation()
     {
-        return $this->belongsTo(IncidentInformations::class, 'incident_id');
+        return $this->belongsTo(IncidentInformations::class, 'incident_informations_id');
     }
 }

@@ -9,11 +9,17 @@ use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\SignUp;
 use App\Http\Livewire\StaticSignIn;
 use App\Http\Livewire\StaticSignUp;
+use App\Http\Livewire\DataManagement;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\AuditManagement;
 
+use App\Http\Livewire\CarbonFootprint;
 use App\Http\Livewire\Auth\ResetPassword;
+use App\Http\Livewire\IncidentManagement;
 use App\Http\Livewire\Auth\ForgotPassword;
-
+use App\Http\Livewire\IndicatorMonitoring;
+use App\Http\Livewire\IncidentManagementShow;
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
 
@@ -41,11 +47,12 @@ Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')-
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/Incident-Management', Dashboard::class)->name('incident-management');
-    Route::get('/Indicator-Monitoring', Dashboard::class)->name('indicator-monitoring');
-    Route::get('/Audit-Management', Dashboard::class)->name('audit-management');
-    Route::get('/Data-Management', Dashboard::class)->name('data-management');
-    Route::get('/Carbon-Footprint', Dashboard::class)->name('carbon-footprint');
+    Route::get('/Incident-Management', IncidentManagement::class)->name('incident-management');
+    Route::get('/Incident-Management-{incidentInformation}', IncidentManagementShow::class)->name('incident-management-show');
+    Route::get('/Indicator-Monitoring', IndicatorMonitoring::class)->name('indicator-monitoring');
+    Route::get('/Audit-Management', AuditManagement::class)->name('audit-management');
+    Route::get('/Data-Management', DataManagement::class)->name('data-management');
+    Route::get('/Carbon-Footprint', CarbonFootprint::class)->name('carbon-footprint');
 
 
 

@@ -10,16 +10,16 @@ class FollowUpActions extends Model
 {
     use HasFactory;
 
-    protected $table = 'follow_up';
+    protected $table = 'follow_up_actions';
 
     protected $fillable = [
-        'incident_id',
+        'incident_informations_id',
         'corrective_action_description',
         'implementation_timetable'
     ];
 
     public function incidentInformation()
     {
-        return $this->belongsTo(IncidentInformations::class, 'incident_id');
+        return $this->belongsTo(IncidentInformations::class, 'incident_informations_id');
     }
 }

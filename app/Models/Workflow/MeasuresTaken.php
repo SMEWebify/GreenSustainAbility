@@ -10,16 +10,16 @@ class MeasuresTaken extends Model
 {
     use HasFactory;
 
-    protected $table = 'measures_taken';
+    protected $table = 'measures_takens';
 
     protected $fillable = [
-        'incident_id',
+        'incident_informations_id',
         'action_taken',
         'teams_involved'
     ];
 
     public function incidentInformation()
     {
-        return $this->belongsTo(IncidentInformations::class, 'incident_id');
+        return $this->belongsTo(IncidentInformations::class, 'incident_informations_id');
     }
 }

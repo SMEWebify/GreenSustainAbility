@@ -10,15 +10,15 @@ class ImpactAssessment extends Model
 {
     use HasFactory;
 
-    protected $table = 'impact_assessment';
+    protected $table = 'impact_assessments';
 
     protected $fillable = [
-        'incident_id',
+        'incident_informations_id',
         'impact_assessment'
     ];
 
     public function incidentInformation()
     {
-        return $this->belongsTo(IncidentInformations::class, 'incident_id');
+        return $this->belongsTo(IncidentInformations::class, 'incident_informations_id');
     }
 }
