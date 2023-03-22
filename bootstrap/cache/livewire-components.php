@@ -9,6 +9,7 @@
   'dashboard' => 'App\\Http\\Livewire\\Dashboard',
   'data-management' => 'App\\Http\\Livewire\\DataManagement',
   'incident-management' => 'App\\Http\\Livewire\\IncidentManagement',
+  'incident-management-show' => 'App\\Http\\Livewire\\IncidentManagementShow',
   'indicator-monitoring' => 'App\\Http\\Livewire\\IndicatorMonitoring',
   'laravel-examples.user-management' => 'App\\Http\\Livewire\\LaravelExamples\\UserManagement',
   'laravel-examples.user-profile' => 'App\\Http\\Livewire\\LaravelExamples\\UserProfile',
