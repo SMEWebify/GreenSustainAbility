@@ -26,7 +26,8 @@ class IncidentInformations extends Model
         'location',
         'description',
         'material_type',
-        'quantity'
+        'quantity',
+        'statu,'
     ];
 
     public function measuresTaken()
@@ -57,6 +58,16 @@ class IncidentInformations extends Model
     public function rootCauseAnalysis()
     {
         return $this->hasOne(RootCauseAnalysis::class);
+    }
+
+    public function GetPrettyStatu()
+    {
+        if ($this->statu == 1) return "Open";
+        else if ($this->statu == 2) return "In Progress";
+        else if ($this->statu == 3) return "Corrective Action";
+        else if ($this->statu == 4) return "Resolved";
+        else if ($this->statu == 5) return "Pending";
+        else return "Closed";
     }
 
     public function GetPrettyCreatedAttribute()

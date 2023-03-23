@@ -21,7 +21,7 @@ class IncidentManagementShow extends Component
 
     //Incident Management detail
     public $idIncident;
-    public  $date, $time, $location, $description, $material_type, $quantity;
+    public  $date, $time, $location, $description, $material_type, $quantity, $statu;
 
     //Measures Taken to Manage the Incident
     public $action_taken, $teams_involved;
@@ -56,6 +56,7 @@ class IncidentManagementShow extends Component
         $this->description = $this->incidentInformation->description;
         $this->material_type = $this->incidentInformation->material_type;
         $this->quantity = $this->incidentInformation->quantity;
+        $this->statu = $this->incidentInformation->statu;
 
     }
 
@@ -241,6 +242,15 @@ class IncidentManagementShow extends Component
             session()->flash('success',"Line deleted Successfully !");
         }catch(\Exception $e){
             session()->flash('error',"Something goes wrong while deleting Line");
+        }
+    }
+
+    public function changeStatu($statuNumber){
+        try{
+            IncidentInformations::where('id',$this->idIncident)->update(['statu'=>$statuNumber]);
+            $this->incidentInformation->refresh();
+        }catch(\Exception $e){
+            session()->flash('error',"Something goes wrong on update statu");
         }
     }
 }

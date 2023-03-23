@@ -118,6 +118,21 @@
                 </div>
             </div>
         </div>
+
+    </div>
+    <div class="row ">
+        <div class="col-12 mt-4">
+            <div class="arrow-steps clearfix">
+                <div class="step {{ $incidentInformation->statu == 1 ? 'current' : '' }} {{ $incidentInformation->statu <= 1 ? ' ' : 'done' }}"> <span><a href="#" wire:click="changeStatu(1)" >Open</a></span> </div>
+                <div class="step {{ $incidentInformation->statu == 2 ? 'current' : '' }} {{ $incidentInformation->statu <= 2 ? ' ' : 'done' }}"> <span><a href="#" wire:click="changeStatu(2)">In process</a></span> </div>
+                <div class="step {{ $incidentInformation->statu == 3 ? 'current' : '' }} {{ $incidentInformation->statu <= 3 ? ' ' : 'done' }}"> <span><a href="#" wire:click="changeStatu(3)">Corrective Actions</a></span> </div>
+                <div class="step {{ $incidentInformation->statu == 4 ? 'current' : '' }} {{ $incidentInformation->statu <= 4 ? ' ' : 'done' }}"> <span><a href="#" wire:click="changeStatu(4)">Resolved</a><span> </div>
+                <div class="step {{ $incidentInformation->statu == 5 ? 'current' : '' }} {{ $incidentInformation->statu <= 5 ? ' ' : 'done' }}"> <span><a href="#" wire:click="changeStatu(5)">Pending</a><span> </div>
+                <div class="step {{ $incidentInformation->statu == 6 ? 'current' : '' }} {{ $incidentInformation->statu <= 6 ? ' ' : 'done' }}"> <span><a href="#" wire:click="changeStatu(6)">Closed</a><span> </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12 col-xl-4 mt-4">
             <div class="card h-100">
                 <div class="card-header pb-0 p-3">

@@ -104,6 +104,7 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Description') }}</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Material Type') }}</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Quantity') }}</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Statu') }}</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Creation Date') }}</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Actions') }}</th>
                                 </tr>
@@ -117,6 +118,7 @@
                                         <td>{{ $incident->description }}</td>
                                         <td>{{ $incident->material_type }}</td>
                                         <td>{{ $incident->quantity }}</td>
+                                        <td>{{ $incident->GetPrettyStatu() }}</td>
                                         <td>{{ $incident->GetPrettyCreatedAttribute() }}</td>
                                         <td>
                                             <!-- View Link -->
