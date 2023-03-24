@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('indicator_data', function (Blueprint $table) {
+        Schema::create('indicators', function (Blueprint $table) {
             $table->id();
             $table->string('indicator_type');
-            $table->float('indicator_value');
+            $table->string('source_type');
+            $table->string('source_name');
+            $table->string('source_location');
             $table->string('measurement_unit');
-            $table->dateTime('measurement_datetime');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('indicator_data');
+        Schema::dropIfExists('indicators');
     }
 };

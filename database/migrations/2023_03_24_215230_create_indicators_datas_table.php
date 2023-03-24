@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('data_histories', function (Blueprint $table) {
+        Schema::create('indicators_datas', function (Blueprint $table) {
             $table->id();
-            $table->string('indicator_type');
+            $table->foreignId('indicator_type_id')->constrained('indicators');
             $table->float('indicator_value');
-            $table->string('measurement_unit');
             $table->dateTime('measurement_datetime');
             $table->timestamps();
         });
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_histories');
+        Schema::dropIfExists('indicators_datas');
     }
 };
