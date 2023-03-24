@@ -80,6 +80,35 @@
                                                         @error('quantity') <span class="text-danger">{{ $message }}<br/></span>@enderror
                                                     </div>
                                                 </div>
+
+                                                <div class="form-group row{{ $errors->has('unit') ? ' has-error' : '' }}">
+                                                    <label for="unit"  class="col-md-4 control-label">{{ __('Unit') }}</label>
+                                                
+                                                    <div class="col-md-6">
+                                                        <select class="form-control @error('unit') is-invalid @enderror"  name="unit" id="unit"  wire:model="unit">
+                                                            <option value="" >Select Unit</option>
+                                                            <option value="Gram (g)">{{ __('Gram (g)') }}</option>
+                                                            <option value="Kilogram (kg)">{{ __('Kilogram (kg)') }}</option>
+                                                            <option value="Metric ton (t)">{{ __('Metric ton (t)') }}</option>
+                                                            <option value="Pound (lb)">{{ __('Pound (lb)') }}</option>
+                                                            <option value="Ounce (oz)">{{ __('Ounce (oz)') }}</option>
+                                                            <option value="Liter (L)">{{ __('Liter (L)') }}</option>
+                                                            <option value="Cubic meter (m3)">{{ __('Cubic meter (m3)') }}</option>
+                                                            <option value="Cubic foot (ft3)">{{ __('Cubic foot (ft3)') }}</option>
+                                                            <option value="gallon (gal)">{{ __('gallon (gal)') }}</option>
+                                                            <option value="Barrel (bbl)">{{ __('Barrel (bbl)') }}</option>
+                                                            <option value="Short ton (st)">{{ __('Short ton (st)') }}</option>
+                                                            <option value="Long ton (lt)">{{ __('Long ton (lt)') }}</option>
+                                                            <option value="Cubic inch (in3)">{{ __('Cubic inch (in3)') }}</option>
+                                                            <option value="Cubic centimeter (cm3)">{{ __('Cubic centimeter (cm3)') }}</option>
+                                                            <option value="Square meter (m2)">{{ __('Square meter (m2)') }}</option>
+                                                            <option value="Square foot (ft2)">{{ __('Square foot (ft2)') }}</option>
+                                                            <option value="Hectares (ha)">{{ __('Hectares (ha)') }}</option>
+                                                            <option value="Acre (ac)">{{ __('Acre (ac)') }}</option>
+                                                        </select>
+                                                        @error('unit') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
@@ -104,6 +133,7 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Description') }}</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Material Type') }}</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Quantity') }}</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Unit') }}</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Statu') }}</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Creation Date') }}</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Actions') }}</th>
@@ -118,6 +148,7 @@
                                         <td>{{ $incident->description }}</td>
                                         <td>{{ $incident->material_type }}</td>
                                         <td>{{ $incident->quantity }}</td>
+                                        <td>{{ $incident->unit }}</td>
                                         <td>{{ $incident->GetPrettyStatu() }}</td>
                                         <td>{{ $incident->GetPrettyCreatedAttribute() }}</td>
                                         <td>

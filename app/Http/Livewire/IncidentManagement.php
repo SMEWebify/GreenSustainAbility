@@ -11,8 +11,7 @@ class IncidentManagement extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-
-    public $date, $time, $location, $description, $material_type, $quantity;
+    public $date, $time, $location, $description, $material_type, $quantity, $unit;
 
     // Validation Rules
     protected $rules = [
@@ -22,12 +21,11 @@ class IncidentManagement extends Component
         'description'=>'required',
         'material_type'=>'required',
         'quantity'=>'required',
+        'unit'=>'required',
     ];
 
     public function render()
     {
-
-        
         $incidents = IncidentInformations::orderBy('date', 'desc')->paginate(10);
         return view('livewire.incident-management', [
             'incidents' => $incidents,
@@ -45,6 +43,7 @@ class IncidentManagement extends Component
             'description'=>$this->description,
             'material_type'=>$this->material_type, 
             'quantity'=>$this->quantity, 
+            'unit'=>$this->unit, 
         ]);
 
         return redirect()->route('incident-management-show', ['incidentInformation' => $IncidentInformationsCreated->id])->with('success', 'Successfully created new incident');

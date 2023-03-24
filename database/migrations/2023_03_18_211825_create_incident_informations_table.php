@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('material_type');
             $table->integer('quantity');
+            $table->string('unit')->nullable();
             $table->integer('statu')->default(1);
             $table->timestamps();
         });

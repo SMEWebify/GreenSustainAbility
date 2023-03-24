@@ -27,7 +27,8 @@ class IncidentInformations extends Model
         'description',
         'material_type',
         'quantity',
-        'statu,'
+        'statu',
+        'unit',
     ];
 
     public function measuresTaken()

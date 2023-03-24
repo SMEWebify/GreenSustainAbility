@@ -21,7 +21,7 @@ class IncidentManagementShow extends Component
 
     //Incident Management detail
     public $idIncident;
-    public  $date, $time, $location, $description, $material_type, $quantity, $statu;
+    public  $date, $time, $location, $description, $material_type, $quantity, $unit, $statu;
 
     //Measures Taken to Manage the Incident
     public $action_taken, $teams_involved;
@@ -44,6 +44,7 @@ class IncidentManagementShow extends Component
         'description'=>'required',
         'material_type'=>'required',
         'quantity'=>'required',
+        'unit'=>'required',
     ];
     
     public function mount(IncidentInformations $incidentInformation)
@@ -56,6 +57,7 @@ class IncidentManagementShow extends Component
         $this->description = $this->incidentInformation->description;
         $this->material_type = $this->incidentInformation->material_type;
         $this->quantity = $this->incidentInformation->quantity;
+        $this->unit = $this->incidentInformation->unit;
         $this->statu = $this->incidentInformation->statu;
 
     }
@@ -79,6 +81,7 @@ class IncidentManagementShow extends Component
             'description'=>$this->description,
             'material_type'=>$this->material_type,
             'quantity'=>$this->quantity,
+            'unit'=>$this->unit,
         ])->save();
 
         return redirect()->route('incident-management-show', ['incidentInformation' => $this->idIncident])->with('success', 'Successfully update incident');
