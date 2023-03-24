@@ -47,6 +47,8 @@ The Environmental Audit Management System allows users to schedule audits, recor
 System features include:
 
 - Environmental Incident Management: To track and manage environmental incidents, their root causes, and corrective actions.
+![image](https://user-images.githubusercontent.com/75578469/227654532-ab4d6c7b-3fc5-4d17-ab2d-83901be6414c.png)
+
 - Environmental Indicator Monitoring: To monitor and manage environmental indicators, such as energy consumption, greenhouse gas emissions, water discharge, waste, etc.
 - Environmental Audit Management: To manage environmental audits, their schedule, data recording, and analysis.
 - Emissions Data Management: To manage emissions data, such as emission type, source, location, amount, date, etc.
