@@ -187,16 +187,86 @@
                         <div>
                             <h5 class="mb-0">{{ __('Indicator Monitoring Data') }}</h5>
                         </div>
+                        <div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn bg-gradient-success btn-block mb-3" data-bs-toggle="modal" data-bs-target="#Data">
+                                {{ __('Add Data') }}
+                            </button>
+                            <!-- Modal -->
+                            <div wire:ignore.self class="modal fade" id="Data" tabindex="-1" role="dialog" aria-labelledby="Data" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">{{ __('Add Data') }}</h5>
+                                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <form>
+                                            <div class="modal-body">
+                                                @csrf
+                                                <div class="form-group row{{ $errors->has('indicator_value') ? ' has-error' : '' }}">
+                                                    <label for="indicator_value" class="col-md-4 control-label">{{ __('Data value') }} :</label>
+                            
+                                                    <div class="col-md-6">
+                                                        <input id="indicator_value" type="text" class="form-control" name="indicator_value" wire:model="indicator_value" required autofocus>
+                                                        @error('indicator_value') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row{{ $errors->has('measurement_datetime') ? ' has-error' : '' }}">
+                                                    <label for="measurement_datetime" class="col-md-4 control-label">{{ __('Measurement datetime') }} :</label>
+                            
+                                                    <div class="col-md-6">
+                                                        <input id="measurement_datetime" type="datetime-local" class="form-control" name="measurement_datetime" wire:model="measurement_datetime" required autofocus>
+                                                        @error('measurement_datetime') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                                                <button type="button" wire:click.prevent="storeData()" class="btn bg-gradient-primary">{{ __('Submit') }}</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body p-3">
-                    <ul>
-                        @forelse($indicator->DataHistories as $DataHistory)
-                        <li>{{ $DataHistory->measurement_datetime }} - {{ $DataHistory->indicator_value }} {{ $indicator->measurement_unit }} - </li>
-                        @empty
-                        <li>{{ __('No entry') }}</li>
-                        @endforelse
-                    </ul>
+                    <div class="table-responsive">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date time</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Value</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
+                                    <th class="text-secondary opacity-7"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($indicator->DataHistories as $DataHistory)
+                                <tr>
+                                    <td>#{{ $DataHistory->id }}</td>
+                                    <td>{{ $DataHistory->measurement_datetime }}</td>
+                                    <td>{{ $DataHistory->indicator_value }}</td>
+                                    <td>{{ $indicator->measurement_unit }}</td>
+                                    <td><a href="#" wire:click="deleteData({{ $DataHistory->id  }})" ><i class="ni ni-fat-remove text-danger"></i></a></td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td></td>
+                                    <td>No entry</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Workflow\Indicator;
+use App\Models\Workflow\IndicatorsDatas;
 
 class IndicatorMonitoringShow extends Component
 {
@@ -13,6 +14,8 @@ class IndicatorMonitoringShow extends Component
     public $idIndicator;
     public  $indicator_type, $source_type, $source_name, $source_location, $measurement_unit;
 
+    //Indicators Datas
+    public $indicator_value, $measurement_datetime;
 
     // Validation Rules
     protected $rules = [
@@ -56,5 +59,31 @@ class IndicatorMonitoringShow extends Component
         ])->save();
 
         return redirect()->route('indicator-monitoring-show', ['indicator' => $this->idIndicator])->with('success', 'Successfully update indicator');
+    }
+
+    public function storeData(){
+
+        $validatedData = $this->validate([
+            'indicator_value' => 'required',
+            'measurement_datetime' => 'required',
+        ]);
+ 
+        IndicatorsDatas::create([
+            'indicator_id'=>$this->idIndicator, 
+            'indicator_value'=>$this->indicator_value,
+            'measurement_datetime'=>$this->measurement_datetime, 
+        ]);
+
+        return redirect()->route('indicator-monitoring-show', ['indicator' => $this->idIndicator])->with('success', 'New data added successfully');
+    }
+
+    public function deleteData($id){
+        try{
+            IndicatorsDatas::find($id)->delete();
+            $this->indicator->refresh();
+            session()->flash('success',"Line deleted Successfully !");
+        }catch(\Exception $e){
+            session()->flash('error',"Something goes wrong while deleting Line");
+        }
     }
 }
