@@ -11,13 +11,13 @@ class IndicatorsDatas extends Model
     use HasFactory;
 
     protected $fillable = [
-        'indicator_type_id', 
+        'indicator_id', 
         'indicator_value', 
         'measurement_datetime'
     ];
 
     public function indicator()
     {
-        return $this->belongsTo(Indicator::class, 'indicator_type_id');
+        return $this->belongsTo(Indicator::class, 'indicator_id');
     }
 }

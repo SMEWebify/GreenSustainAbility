@@ -2,8 +2,9 @@
 
 namespace App\Models\Workflow;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Workflow\Indicator;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AlarmsNotifications extends Model
 {
@@ -12,9 +13,13 @@ class AlarmsNotifications extends Model
     protected $table = 'alarms_notifications';
 
     protected $fillable = [
-        'indicator_type',
+        'indicator_type_id',
         'threshold_value',
-        'measurement_unit',
         'status'
     ];
+
+    public function indicator()
+    {
+        return $this->belongsTo(Indicator::class, 'indicator_type_id');
+    }
 }

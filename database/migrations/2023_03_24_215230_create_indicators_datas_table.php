@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('indicators_datas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('indicator_type_id')->constrained('indicators');
+            $table->foreignId('indicator_id')->constrained('indicators');
             $table->float('indicator_value');
             $table->dateTime('measurement_datetime');
             $table->timestamps();

@@ -15,8 +15,6 @@ return new class extends Migration
     {
         Schema::create('regulatory_compliances', function (Blueprint $table) {
             $table->id();
-            $table->string('emission_type');
-            $table->string('emission_source');
             $table->string('regulatory_requirement');
             $table->enum('compliance_status', ['compliant', 'non-compliant']);
             $table->date('verification_date');

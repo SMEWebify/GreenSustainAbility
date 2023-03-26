@@ -15,8 +15,6 @@ return new class extends Migration
     {
         Schema::create('planning_and_tracking_reductions', function (Blueprint $table) {
             $table->id();
-            $table->string('emission_type');
-            $table->string('emission_source');
             $table->float('reduction_target');
             $table->string('reduction_measures');
             $table->float('reduction_results');

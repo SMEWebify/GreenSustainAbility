@@ -10,8 +10,6 @@ class RegulatoryCompliance extends Model
     use HasFactory;
 
     protected $fillable = [
-        'emission_type',
-        'emission_source',
         'regulatory_requirement',
         'compliance_status',
         'verification_date',

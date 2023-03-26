@@ -10,8 +10,6 @@ class PlanningAndTrackingReductions extends Model
     use HasFactory;
 
     protected $fillable = [
-        'emission_type',
-        'emission_source',
         'reduction_target',
         'reduction_measures',
         'reduction_results',

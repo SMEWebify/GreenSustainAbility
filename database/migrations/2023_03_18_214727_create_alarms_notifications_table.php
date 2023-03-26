@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('alarms_notifications', function (Blueprint $table) {
             $table->id();
-            $table->string('indicator_type');
+            $table->foreignId('indicator_type_id')->constrained('indicators');
             $table->float('threshold_value');
-            $table->string('measurement_unit');
             $table->string('status');
             $table->timestamps();
         });

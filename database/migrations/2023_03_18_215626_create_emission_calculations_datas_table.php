@@ -15,8 +15,6 @@ return new class extends Migration
     {
         Schema::create('emission_calculations_datas', function (Blueprint $table) {
             $table->id();
-            $table->string('emission_type');
-            $table->string('emission_source');
             $table->string('emission_calculation_method');
             $table->float('emission_calculation_result');
             $table->date('date_of_calculation');
