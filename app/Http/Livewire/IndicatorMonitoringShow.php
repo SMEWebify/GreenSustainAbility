@@ -16,11 +16,11 @@ class IndicatorMonitoringShow extends Component
 
     // Validation Rules
     protected $rules = [
-        'indicator_type', 
-        'source_type', 
-        'source_name', 
-        'source_location', 
-        'measurement_unit'
+        'indicator_type' =>'required',
+        'source_type'=>'required',
+        'source_name'=>'required',
+        'source_location'=>'required',
+        'measurement_unit'=>'required',
     ];
 
     public function mount(Indicator $indicator)
@@ -40,5 +40,21 @@ class IndicatorMonitoringShow extends Component
         return view('livewire.indicator-monitoring-show', [
             'indicator' => $this->indicator,
         ]);
+    }
+
+    public function updateIndicator()
+    {
+        // Validate request
+        $this->validate();
+        // Update line
+        Indicator::find($this->idIndicator)->fill([
+            'indicator_type'=>$this->indicator_type,
+            'source_type'=>$this->source_type,
+            'source_name'=>$this->source_name,
+            'source_location'=>$this->source_location,
+            'measurement_unit'=>$this->measurement_unit,
+        ])->save();
+
+        return redirect()->route('indicator-monitoring-show', ['indicator' => $this->idIndicator])->with('success', 'Successfully update indicator');
     }
 }

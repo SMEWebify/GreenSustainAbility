@@ -20,6 +20,7 @@ use App\Http\Livewire\IncidentManagement;
 use App\Http\Livewire\Auth\ForgotPassword;
 use App\Http\Livewire\IndicatorMonitoring;
 use App\Http\Livewire\IncidentManagementShow;
+use App\Http\Livewire\IndicatorMonitoringShow;
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
 
@@ -50,6 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Incident-Management', IncidentManagement::class)->name('incident-management');
     Route::get('/Incident-Management-{incidentInformation}', IncidentManagementShow::class)->name('incident-management-show');
     Route::get('/Indicator-Monitoring', IndicatorMonitoring::class)->name('indicator-monitoring');
+    Route::get('/Indicator-Monitoring-{indicator}', IndicatorMonitoringShow::class)->name('indicator-monitoring-show');
     Route::get('/Audit-Management', AuditManagement::class)->name('audit-management');
     Route::get('/Data-Management', DataManagement::class)->name('data-management');
     Route::get('/Carbon-Footprint', CarbonFootprint::class)->name('carbon-footprint');
