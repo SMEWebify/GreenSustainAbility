@@ -151,13 +151,44 @@
                         <div>
                             <h6 class="mb-0">{{ __('Report') }}</h6>
                         </div>
-                        <div>
-                            
-                        </div>
                     </div>
                 </div>
                 <div class="card-body p-3">
-                    a
+                    <canvas id="myChart"></canvas>
+                    <script>
+                        
+                        @php
+                            $labels = [];
+                            $data = [];
+                            // Récupération des mois et des valeurs de l'indicateur par mois
+                            // Tri des données par mois
+                            $sortedData = collect($dataByMonth)->sortBy('month');
+                        @endphp
+
+                        @foreach ($sortedData as $item)
+                            @php
+                                $labels[] = date("F", mktime(0, 0, 0, get_object_vars($item)['month'], 1));
+                                $data[] = get_object_vars($item)['sum_value']; 
+                            @endphp
+                        @endforeach
+
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var chart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                    
+                                    labels: {!! json_encode($labels) !!},
+                                    datasets: [{
+                                        label: {!! json_encode($indicator->measurement_unit) !!},
+                                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                        borderColor: 'rgba(54, 162, 235, 1)',
+                                        borderWidth: 1,
+                                        data: {!! json_encode($data) !!},
+                                    }]
+                                },
+                        }
+                        );
+                    </script>
                 </div>
             </div>
         </div>
@@ -174,7 +205,7 @@
                     </div>
                 </div>
                 <div class="card-body p-3">
-                    a
+                    
                 </div>
             </div>
         </div>

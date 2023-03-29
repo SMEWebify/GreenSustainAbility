@@ -4,11 +4,13 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Workflow\Indicator;
+use Illuminate\Support\Facades\DB;
 use App\Models\Workflow\IndicatorsDatas;
 
 class IndicatorMonitoringShow extends Component
 {
     public $indicator;
+    private $dataByMonth;
 
     //Indicator Monitoring detail
     public $idIndicator;
@@ -40,8 +42,17 @@ class IndicatorMonitoringShow extends Component
 
     public function render()
     {
+        $dataByMonth = DB::table('indicators_datas')
+                ->select(DB::raw('MONTH(measurement_datetime) as month'), DB::raw('SUM(indicator_value) as sum_value'))
+                ->where('indicator_id', $this->idIndicator)
+                ->groupBy(DB::raw('MONTH(measurement_datetime)'))
+                ->orderBy(DB::raw('MONTH(measurement_datetime)'))
+                ->get();
+
         return view('livewire.indicator-monitoring-show', [
             'indicator' => $this->indicator,
+            
+            'dataByMonth' => $dataByMonth,
         ]);
     }
 
