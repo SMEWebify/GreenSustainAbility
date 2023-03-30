@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('alarms_notifications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('indicator_type_id')->constrained('indicators');
+            $table->foreignId('indicator_id')->constrained('indicators');
             $table->float('threshold_value');
-            $table->string('status');
+            $table->string('comparison_operator');
+            $table->string('notification_type')->default('email');
+            $table->string('active')->default('yes');
             $table->timestamps();
         });
     }

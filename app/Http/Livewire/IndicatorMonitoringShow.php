@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Workflow\Indicator;
 use Illuminate\Support\Facades\DB;
 use App\Models\Workflow\IndicatorsDatas;
+use App\Models\Workflow\AlarmsNotifications;
 
 class IndicatorMonitoringShow extends Component
 {
@@ -18,6 +19,9 @@ class IndicatorMonitoringShow extends Component
 
     //Indicators Datas
     public $indicator_value, $measurement_datetime;
+
+    //Alarms Notifications
+    public $threshold_value, $comparison_operator, $notification_type, $active;
 
     // Validation Rules
     protected $rules = [
@@ -91,6 +95,36 @@ class IndicatorMonitoringShow extends Component
     public function deleteData($id){
         try{
             IndicatorsDatas::find($id)->delete();
+            $this->indicator->refresh();
+            session()->flash('success',"Line deleted Successfully !");
+        }catch(\Exception $e){
+            session()->flash('error',"Something goes wrong while deleting Line");
+        }
+    }
+
+    public function storeAlarm(){
+
+        $validatedAlarme = $this->validate([
+            'threshold_value' => 'required',
+            'comparison_operator' => 'required',
+            'notification_type' => 'required',
+            'active' => 'required',
+        ]);
+
+        AlarmsNotifications::create([
+            'indicator_id'=>$this->idIndicator, 
+            'threshold_value'=>$this->threshold_value, 
+            'comparison_operator'=>$this->comparison_operator,
+            'notification_type'=>$this->notification_type, 
+            'active'=>$this->active, 
+        ]);
+
+        return redirect()->route('indicator-monitoring-show', ['indicator' => $this->idIndicator])->with('success', 'New alarm added successfully');
+    }
+
+    public function deleteAlarm($id){
+        try{
+            AlarmsNotifications::find($id)->delete();
             $this->indicator->refresh();
             session()->flash('success',"Line deleted Successfully !");
         }catch(\Exception $e){

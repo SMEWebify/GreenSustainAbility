@@ -200,12 +200,120 @@
                             <h6 class="mb-0">{{ __('Alarms and notifications') }}</h6>
                         </div>
                         <div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn bg-gradient-success btn-block mb-3" data-bs-toggle="modal" data-bs-target="#Alarm">
+                                {{ __('Add Alarm') }}
+                            </button>
+                            <!-- Modal -->
+                            <div wire:ignore.self class="modal fade" id="Alarm" tabindex="-1" role="dialog" aria-labelledby="Alarm" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">{{ __('Add Alarm') }}</h5>
+                                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <form>
+                                            <div class="modal-body">
+                                                @csrf
+                                                <div class="form-group row{{ $errors->has('threshold_value') ? ' has-error' : '' }}">
+                                                    <label for="threshold_value" class="col-md-4 control-label">{{ __('Threshold value') }} :</label>
                             
+                                                    <div class="col-md-6">
+                                                        <input id="threshold_value" type="number" class="form-control" name="threshold_value" wire:model="threshold_value" required autofocus>
+                                                        @error('threshold_value') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row{{ $errors->has('comparison_operator') ? ' has-error' : '' }}">
+                                                    <label for="comparison_operator"  class="col-md-4 control-label">{{ __('Comparison operator') }}</label>
+                                                
+                                                    <div class="col-md-6">
+                                                        <select class="form-control @error('comparison_operator') is-invalid @enderror"  name="comparison_operator" id="comparison_operator"  wire:model="comparison_operator">
+                                                            <option value="" >Select operator</option>
+                                                            <option value=">">></option>
+                                                            <option value="<"><</option>
+                                                            <option value=">=">>=</option>
+                                                            <option value="<="><=</option>
+                                                            <option value="=">=</option>
+                                                        </select>
+                                                        @error('comparison_operator') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row{{ $errors->has('notification_type') ? ' has-error' : '' }}">
+                                                    <label for="notification_type"  class="col-md-4 control-label">{{ __('Notification type') }}</label>
+                                                
+                                                    <div class="col-md-6">
+                                                        <select class="form-control @error('notification_type') is-invalid @enderror"  name="notification_type" id="notification_type"  wire:model="notification_type">
+                                                            <option value="" >Select type</option>
+                                                            <option value="without">without</option>
+                                                            <option value="email">email</option>
+                                                            <option value="sms">sms</option>
+                                                        </select>
+                                                        @error('notification_type') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row{{ $errors->has('active') ? ' has-error' : '' }}">
+                                                    <label for="active"  class="col-md-4 control-label">{{ __('Active') }}</label>
+                                                
+                                                    <div class="col-md-6">
+                                                        <select class="form-control @error('active') is-invalid @enderror"  name="active" id="active"  wire:model="active">
+                                                            <option value="" >Select statu</option>
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+                                                        </select>
+                                                        @error('active') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                                                <button type="button" wire:click.prevent="storeAlarm()" class="btn bg-gradient-primary">{{ __('Submit') }}</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-body p-3">
-                    
+                    <div class="table-responsive">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Threshold value</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Comparison operator</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Notification type</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Active</th>
+                                    <th class="text-secondary opacity-7"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($indicator->AlarmsNotifications as $AlarmsNotification)
+                                <tr>
+                                    <td>{{ $AlarmsNotification->threshold_value }}</td>
+                                    <td>{{ $AlarmsNotification->comparison_operator }}</td>
+                                    <td>{{ $AlarmsNotification->notification_type }}</td>
+                                    <td>{{ $AlarmsNotification->active }}</td>
+                                    <td><a href="#" wire:click="deleteAlarm({{ $AlarmsNotification->id  }})" ><i class="ni ni-fat-remove text-danger"></i></a></td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td></td>
+                                    <td>No entry</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

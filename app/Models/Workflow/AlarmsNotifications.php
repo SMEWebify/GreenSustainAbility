@@ -13,13 +13,15 @@ class AlarmsNotifications extends Model
     protected $table = 'alarms_notifications';
 
     protected $fillable = [
-        'indicator_type_id',
+        'indicator_id',
         'threshold_value',
-        'status'
+        'comparison_operator',
+        'notification_type',
+        'active'
     ];
 
     public function indicator()
     {
-        return $this->belongsTo(Indicator::class, 'indicator_type_id');
+        return $this->belongsTo(Indicator::class, 'indicator_id');
     }
 }
