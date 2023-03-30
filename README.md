@@ -50,6 +50,8 @@ System features include:
 ![image](https://user-images.githubusercontent.com/75578469/227654532-ab4d6c7b-3fc5-4d17-ab2d-83901be6414c.png)
 
 - Environmental Indicator Monitoring: To monitor and manage environmental indicators, such as energy consumption, greenhouse gas emissions, water discharge, waste, etc.
+![image](https://user-images.githubusercontent.com/75578469/228966359-3bc33e04-8842-4b7f-9736-9b57ed0fd657.png)
+
 - Environmental Audit Management: To manage environmental audits, their schedule, data recording, and analysis.
 - Emissions Data Management: To manage emissions data, such as emission type, source, location, amount, date, etc.
 - Carbon Footprint Calculation: To calculate and manage carbon footprint data, including emissions, reductions, and targets.
