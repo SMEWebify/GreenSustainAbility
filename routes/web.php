@@ -17,6 +17,7 @@ use App\Http\Livewire\AuditManagement;
 use App\Http\Livewire\CarbonFootprint;
 use App\Http\Livewire\Auth\ResetPassword;
 use App\Http\Livewire\IncidentManagement;
+use App\Http\Livewire\AuditManagementShow;
 use App\Http\Livewire\Auth\ForgotPassword;
 use App\Http\Livewire\IndicatorMonitoring;
 use App\Http\Livewire\IncidentManagementShow;
@@ -53,6 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Indicator-Monitoring', IndicatorMonitoring::class)->name('indicator-monitoring');
     Route::get('/Indicator-Monitoring-{indicator}', IndicatorMonitoringShow::class)->name('indicator-monitoring-show');
     Route::get('/Audit-Management', AuditManagement::class)->name('audit-management');
+    Route::get('/Audit-Management-{audit}', AuditManagementShow::class)->name('audit-management-show');
     Route::get('/Data-Management', DataManagement::class)->name('data-management');
     Route::get('/Carbon-Footprint', CarbonFootprint::class)->name('carbon-footprint');
 

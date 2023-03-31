@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('frequency');
             $table->string('scope');
-            $table->date('date');
-            $table->integer('duration');
+            $table->string('duration');
             $table->string('objectives');
             $table->string('resources');
             $table->timestamps();

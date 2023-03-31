@@ -1,5 +1,6 @@
 <?php return array (
   'audit-management' => 'App\\Http\\Livewire\\AuditManagement',
+  'audit-management-show' => 'App\\Http\\Livewire\\AuditManagementShow',
   'auth.forgot-password' => 'App\\Http\\Livewire\\Auth\\ForgotPassword',
   'auth.login' => 'App\\Http\\Livewire\\Auth\\Login',
   'auth.logout' => 'App\\Http\\Livewire\\Auth\\Logout',

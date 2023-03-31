@@ -2,8 +2,9 @@
 
 namespace App\Models\Workflow;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Workflow\AuditData;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AuditSchedules extends Model
 {
@@ -17,4 +18,13 @@ class AuditSchedules extends Model
         'resources'
     ];
 
+    public function auditData()
+    {
+        return $this->hasMany(AuditData::class);
+    }
+
+    public function GetPrettyCreatedAttribute()
+    {
+        return date('d F Y', strtotime($this->created_at));
+    }
 }
