@@ -10,7 +10,7 @@ class AuditData extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['audit_schedules_id', 'results', 'findings', 'recommendations'];
+    protected $fillable = ['audit_schedules_id', 'date', 'auditor', 'audit_type', 'results', 'findings', 'recommendations'];
     
     public function auditSchedule()
     {

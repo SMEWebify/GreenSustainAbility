@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('follow_up_actions_audits', function (Blueprint $table) {
             $table->id();
             $table->foreignId('audit_data_id')->constrained('audit_data');
-            $table->string('description');
-            $table->boolean('is_completed')->default(false);
-            $table->date('deadline');
+            $table->string('action_description');
+            $table->string('responsible_party');
+            $table->date('due_date');
+            $table->date('completion_date');
+            $table->string('status');
             $table->timestamps();
         });
     }

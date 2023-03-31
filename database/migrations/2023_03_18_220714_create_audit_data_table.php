@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('audit_data', function (Blueprint $table) {
             $table->id();
             $table->foreignId('audit_schedule_id')->constrained('audit_schedules');
+            $table->date('date');
+            $table->string('auditor');
+            $table->string('audit_type');
             $table->string('results');
             $table->string('findings');
             $table->string('recommendations');

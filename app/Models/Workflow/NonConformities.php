@@ -10,7 +10,7 @@ class NonConformities extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['audit_data_id', 'description', 'corrective_action', 'preventive_action', 'status'];
+    protected $fillable = ['audit_data_id', 'non_conformity_description', 'corrective_action', 'preventive_action', 'is_closed'];
     
     public function auditData()
     {

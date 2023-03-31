@@ -10,7 +10,7 @@ class FollowUpActionsAudit extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['audit_data_id', 'action', 'responsible', 'deadline', 'status'];
+    protected $fillable = ['audit_data_id', 'action_description', 'responsible_party', 'due_date', 'completion_date', 'status'];
     
     public function auditData()
     {

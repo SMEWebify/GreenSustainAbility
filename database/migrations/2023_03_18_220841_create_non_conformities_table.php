@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('non_conformities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('audit_data_id')->constrained('audit_data');
-            $table->string('description');
+            $table->string('non_conformity_description');
             $table->string('corrective_actions');
             $table->string('preventive_actions');
             $table->boolean('is_closed')->default(false);
