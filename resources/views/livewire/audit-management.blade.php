@@ -103,7 +103,6 @@
                                                 <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
                                                 <button type="button" wire:click.prevent="storeAudit()" class="btn bg-gradient-primary">{{ __('Submit') }}</button>
                                             </div>
-                                            
                                         </form>
                                     </div>
                                 </div>
