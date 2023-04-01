@@ -20,7 +20,7 @@ class AuditSchedules extends Model
 
     public function auditData()
     {
-        return $this->hasMany(AuditData::class);
+        return $this->hasMany(AuditData::class, 'audit_schedule_id');
     }
 
     public function GetPrettyCreatedAttribute()

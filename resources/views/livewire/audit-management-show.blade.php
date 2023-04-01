@@ -136,4 +136,150 @@
         </div>
 
     </div>
+    <div class="row">
+        <div class="col-12 mt-4">
+            <div class="card h-100">
+                <div class="card-header pb-0 p-3">
+                    <div class="d-flex flex-row justify-content-between">
+                        <div>
+                            <h5 class="mb-0">{{ __('Audit Data') }}</h5>
+                        </div>
+                        <div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn bg-gradient-success btn-block mb-3" data-bs-toggle="modal" data-bs-target="#Data">
+                                {{ __('Add Data') }}
+                            </button>
+                            <!-- Modal -->
+                            <div wire:ignore.self class="modal fade" id="Data" tabindex="-1" role="dialog" aria-labelledby="Data" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">{{ __('Add Data') }}</h5>
+                                            <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <form>
+                                            <div class="modal-body">
+                                                @csrf
+
+                                                <div class="form-group row{{ $errors->has('date') ? ' has-error' : '' }}">
+                                                    <label for="date" class="col-md-4 control-label">{{ __('Date') }} :</label>
+                            
+                                                    <div class="col-md-6">
+                                                        <input id="date" type="date" class="form-control" name="date" wire:model="date" required autofocus>
+                                                        @error('date') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row{{ $errors->has('auditor') ? ' has-error' : '' }}">
+                                                    <label for="auditor" class="col-md-4 control-label">{{ __('Auditor') }} :</label>
+                            
+                                                    <div class="col-md-6">
+                                                        <input id="auditor" type="text" class="form-control" name="auditor" wire:model="auditor" required autofocus>
+                                                        @error('auditor') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row{{ $errors->has('audit_type') ? ' has-error' : '' }}">
+                                                    <label for="audit_type"  class="col-md-4 control-label">{{ __('Audit type') }}</label>
+                                                
+                                                    <div class="col-md-6">
+                                                        <select class="form-control @error('audit_type') is-invalid @enderror"  name="audit_type" id="audit_type"  wire:model="audit_type">
+                                                            <option value="">{{ __('Select type') }}</option>
+                                                            <option value="Compliance audit">{{ __('Compliance audit') }}</option>
+                                                            <option value="Regulatory audit">{{ __('Regulatory audit') }}</option>
+                                                            <option value="Sustainability audit">{{ __('Sustainability audit') }}</option>
+                                                            <option value="Energy audit">{{ __('Energy audit') }}</option>
+                                                            <option value="Environmental audit">{{ __('Environmental audit') }}</option>
+                                                            <option value="Health and safety audit">{{ __('Health and safety audit') }}</option>
+                                                            <option value="Social audit">{{ __('Social audit') }}</option>
+                                                            <option value="Supply chain audit">{{ __('Supply chain audit') }}</option>
+                                                            <option value="Other ">{{ __('Other ') }}</option>
+                                                        </select>
+                                                        @error('audit_type') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group row{{ $errors->has('results') ? ' has-error' : '' }}">
+                                                    <label for="results" class="col-md-4 control-label">{{ __('Results') }} :</label>
+                            
+                                                    <div class="col-md-6">
+                                                        <input id="results" type="text" class="form-control" name="results" wire:model="results" required autofocus>
+                                                        @error('results') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row{{ $errors->has('findings') ? ' has-error' : '' }}">
+                                                    <label for="results" class="col-md-4 control-label">{{ __('Findings') }} :</label>
+                            
+                                                    <div class="col-md-6">
+                                                        <input id="findings" type="text" class="form-control" name="findings" wire:model="findings" required autofocus>
+                                                        @error('findings') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row{{ $errors->has('recommendations') ? ' has-error' : '' }}">
+                                                    <label for="results" class="col-md-4 control-label">{{ __('Recommendations') }} :</label>
+                            
+                                                    <div class="col-md-6">
+                                                        <input id="recommendations" type="text" class="form-control" name="recommendations" wire:model="recommendations" required autofocus>
+                                                        @error('recommendations') <span class="text-danger">{{ $message }}<br/></span>@enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                                                <button type="button" wire:click.prevent="storeData()" class="btn bg-gradient-primary">{{ __('Submit') }}</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-3">
+                    <div class="table-responsive">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Auditor</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Audit type</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Results</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Findings</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Recommendations</th>
+                                    <th class="text-secondary opacity-7"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($audit->auditData as $auditData)
+                                <tr>
+                                    <td>#{{ $auditData->id }}</td>
+                                    <td>{{ $auditData->date }}</td>
+                                    <td>{{ $auditData->auditor }}</td>
+                                    <td>{{ $auditData->audit_type }}</td>
+                                    <td>{{ $auditData->results }}</td>
+                                    <td>{{ $auditData->findings }}</td>
+                                    <td>{{ $auditData->recommendations }}</td>
+                                    <td><a href="#" wire:click="deleteData({{ $auditData->id  }})" ><i class="ni ni-fat-remove text-danger"></i></a></td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td></td>
+                                    <td>No entry</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

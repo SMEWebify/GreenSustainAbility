@@ -12,11 +12,11 @@ class AuditData extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['audit_schedules_id', 'date', 'auditor', 'audit_type', 'results', 'findings', 'recommendations'];
+    protected $fillable = ['audit_schedule_id', 'date', 'auditor', 'audit_type', 'results', 'findings', 'recommendations'];
     
     public function auditSchedule()
     {
-        return $this->belongsTo(AuditSchedules::class);
+        return $this->belongsTo(AuditSchedules::class, 'audit_schedule_id');
     }
 
     public function followUpActions()
