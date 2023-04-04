@@ -63,12 +63,12 @@ class IncidentInformations extends Model
 
     public function GetPrettyStatu()
     {
-        if ($this->statu == 1) return "Open";
-        else if ($this->statu == 2) return "In Progress";
-        else if ($this->statu == 3) return "Corrective Action";
-        else if ($this->statu == 4) return "Resolved";
-        else if ($this->statu == 5) return "Pending";
-        else return "Closed";
+        if ($this->statu == 1) return "<span class=\"badge bg-gradient-info\">Open</span>";
+        else if ($this->statu == 2) return "<span class=\"badge bg-gradient-primary\">In Progress</span>";
+        else if ($this->statu == 3) return "<span class=\"badge bg-gradient-danger\">Corrective Action</span>";
+        else if ($this->statu == 4) return "<span class=\"badge bg-gradient-success\">Resolved</span>";
+        else if ($this->statu == 5) return "<span class=\"badge bg-gradient-warning\">Pending</span>";
+        else return "<span class=\"badge bg-gradient-dark\">Closed</span>";
     }
 
     public function GetPrettyCreatedAttribute()

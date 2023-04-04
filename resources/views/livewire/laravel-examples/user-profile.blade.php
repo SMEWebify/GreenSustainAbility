@@ -1,6 +1,6 @@
-<div>
+<div class="main-content">
     @include('includes.alert-result')
-    <div class="container-fluid py-4">
+    <div class="container-fluid">
         <div class="card-header pb-0 px-3">
             <div class="row gx-4" >
                 <div class="col-auto">

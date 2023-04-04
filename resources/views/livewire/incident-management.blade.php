@@ -86,7 +86,7 @@
                                                 
                                                     <div class="col-md-6">
                                                         <select class="form-control @error('unit') is-invalid @enderror"  name="unit" id="unit"  wire:model="unit">
-                                                            <option value="" >Select Unit</option>
+                                                            <option value="" >{{ __('Select Unit') }}</option>
                                                             <option value="Gram (g)">{{ __('Gram (g)') }}</option>
                                                             <option value="Kilogram (kg)">{{ __('Kilogram (kg)') }}</option>
                                                             <option value="Metric ton (t)">{{ __('Metric ton (t)') }}</option>
@@ -127,6 +127,7 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
+                                    <th ></th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Date') }}</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Time') }}</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Location') }}</th>
@@ -142,6 +143,7 @@
                             <tbody>
                                 @foreach($incidents as $incident)
                                     <tr>
+                                        <td>#{{ $incident->id }}</td>
                                         <td>{{ $incident->date }}</td>
                                         <td>{{ $incident->time }}</td>
                                         <td>{{ $incident->location }}</td>
@@ -149,7 +151,7 @@
                                         <td>{{ $incident->material_type }}</td>
                                         <td>{{ $incident->quantity }}</td>
                                         <td>{{ $incident->unit }}</td>
-                                        <td>{{ $incident->GetPrettyStatu() }}</td>
+                                        <td>{!! $incident->GetPrettyStatu() !!}</td>
                                         <td>{{ $incident->GetPrettyCreatedAttribute() }}</td>
                                         <td>
                                             <!-- View Link -->

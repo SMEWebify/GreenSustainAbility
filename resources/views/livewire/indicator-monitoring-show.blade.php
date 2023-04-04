@@ -11,7 +11,7 @@
                         <div>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn bg-gradient-info btn-block mb-3" data-bs-toggle="modal" data-bs-target="#UpdateIndicator">
-                                Edit
+                                {{ __('Edit') }}
                             </button>
                         
                             <!-- Modal -->
@@ -70,7 +70,7 @@
                                                 
                                                     <div class="col-md-6">
                                                         <select class="form-control @error('measurement_unit') is-invalid @enderror"  name="measurement_unit" id="measurement_unit"  wire:model="measurement_unit">
-                                                            <option value="" >Select Unit</option>
+                                                            <option value="" >{{ __('Select Unit') }}</option>
                                                             <option value="">{{ __('-- Energy consumption -- ') }}</option>
                                                             <option value="Kilowatt-hour (kWh)">{{ __('Kilowatt-hour (kWh)') }}</option>
                                                             <option value="Megawatt-hour (MWh)">{{ __('Megawatt-hour (MWh)') }}</option>
@@ -231,7 +231,7 @@
                                                 
                                                     <div class="col-md-6">
                                                         <select class="form-control @error('comparison_operator') is-invalid @enderror"  name="comparison_operator" id="comparison_operator"  wire:model="comparison_operator">
-                                                            <option value="" >Select operator</option>
+                                                            <option value="" >{{ __('Select operator') }}</option>
                                                             <option value=">">></option>
                                                             <option value="<"><</option>
                                                             <option value=">=">>=</option>
@@ -247,10 +247,10 @@
                                                 
                                                     <div class="col-md-6">
                                                         <select class="form-control @error('notification_type') is-invalid @enderror"  name="notification_type" id="notification_type"  wire:model="notification_type">
-                                                            <option value="" >Select type</option>
-                                                            <option value="without">without</option>
-                                                            <option value="email">email</option>
-                                                            <option value="sms">sms</option>
+                                                            <option value="" >{{ __('Select type') }}</option>
+                                                            <option value="without">{{ __('without') }}</option>
+                                                            <option value="email">{{ __('email') }}</option>
+                                                            <option value="sms">{{ __('sms') }}</option>
                                                         </select>
                                                         @error('notification_type') <span class="text-danger">{{ $message }}<br/></span>@enderror
                                                     </div>
@@ -261,9 +261,9 @@
                                                 
                                                     <div class="col-md-6">
                                                         <select class="form-control @error('active') is-invalid @enderror"  name="active" id="active"  wire:model="active">
-                                                            <option value="" >Select statu</option>
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
+                                                            <option value="" >{{ __('Select statu') }}</option>
+                                                            <option value="Yes">{{ __('Yes') }}</option>
+                                                            <option value="No">{{ __('No') }}</option>
                                                         </select>
                                                         @error('active') <span class="text-danger">{{ $message }}<br/></span>@enderror
                                                     </div>
