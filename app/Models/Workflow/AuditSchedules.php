@@ -4,6 +4,7 @@ namespace App\Models\Workflow;
 
 use App\Models\Workflow\AuditData;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Workflow\FollowUpActionsAudit;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AuditSchedules extends Model

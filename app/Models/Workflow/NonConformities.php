@@ -10,10 +10,16 @@ class NonConformities extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['audit_data_id', 'non_conformity_description', 'corrective_action', 'preventive_action', 'is_closed'];
+    protected $fillable = ['audit_data_id', 'non_conformity_description', 'corrective_actions', 'preventive_actions', 'is_closed'];
     
     public function auditData()
     {
-        return $this->belongsTo(AuditData::class);
+        return $this->belongsTo(AuditData::class, 'audit_data_id');
+    }
+
+    public function GetPrettystatu()
+    {
+        if ($this->is_closed == 0) return "<span class=\"badge bg-gradient-info\">No</span>";
+        else return "<span class=\"badge bg-gradient-success\">Yes</span>";
     }
 }

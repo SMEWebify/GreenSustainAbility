@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('action_description');
             $table->string('responsible_party');
             $table->date('due_date');
-            $table->date('completion_date');
-            $table->string('status');
+            $table->date('completion_date')->nullable();
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }
