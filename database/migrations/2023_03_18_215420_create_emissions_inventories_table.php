@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('emission_location');
             $table->float('emission_amount');
             $table->date('date_of_emission');
-            $table->text('notes')->nullable();
+            $table->text('emission_comment')->nullable();
             $table->timestamps();
         });
     }

@@ -10,10 +10,11 @@ class PlanningAndTrackingReductions extends Model
     use HasFactory;
 
     protected $fillable = [
+        'emission_inventorie_id',
         'reduction_target',
         'reduction_measures',
         'reduction_results',
-        'implementation_date',
-        'notes',
+        'date_of_implementation',
+        'reduction_comment',
     ];
 }

@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('regulatory_compliances', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('emission_inventorie_id')->constrained('emission_inventories');
             $table->string('regulatory_requirement');
             $table->enum('compliance_status', ['compliant', 'non-compliant']);
             $table->date('verification_date');
-            $table->text('notes')->nullable();
+            $table->text('regulatory_comment')->nullable();
             $table->timestamps();
         });
     }

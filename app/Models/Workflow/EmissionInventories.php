@@ -10,10 +10,11 @@ class EmissionInventories extends Model
     use HasFactory;
 
     protected $fillable = [
-        'date',
-        'type',
-        'quantity',
-        'source',
-        'location',
+        'emission_type',
+        'emission_source',
+        'emission_location',
+        'emission_amount',
+        'date_of_emission',
+        'emission_comment',
     ];
 }

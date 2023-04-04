@@ -10,9 +10,10 @@ class RegulatoryCompliance extends Model
     use HasFactory;
 
     protected $fillable = [
+        'emission_inventorie_id',
         'regulatory_requirement',
         'compliance_status',
         'verification_date',
-        'notes',
+        'regulatory_comment',
     ];
 }

@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('planning_and_tracking_reductions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('emission_inventorie_id')->constrained('emission_inventories');
             $table->float('reduction_target');
             $table->string('reduction_measures');
             $table->float('reduction_results');
             $table->date('date_of_implementation');
-            $table->text('notes')->nullable();
+            $table->text('reduction_comment')->nullable();
             $table->timestamps();
         });
     }
