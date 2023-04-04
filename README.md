@@ -53,6 +53,9 @@ System features include:
 ![image](https://user-images.githubusercontent.com/75578469/228966359-3bc33e04-8842-4b7f-9736-9b57ed0fd657.png)
 
 - Environmental Audit Management: To manage environmental audits, their schedule, data recording, and analysis.
+![image](https://user-images.githubusercontent.com/75578469/229923201-37833d25-6d64-4857-a49e-eb02b1cc1dc6.png)
+
+
 - Emissions Data Management: To manage emissions data, such as emission type, source, location, amount, date, etc.
 - Carbon Footprint Calculation: To calculate and manage carbon footprint data, including emissions, reductions, and targets.
 
