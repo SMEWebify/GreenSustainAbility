@@ -285,10 +285,10 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Threshold value</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Comparison operator</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Notification type</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Active</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Threshold value') }}</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Comparison operator') }}</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Notification type') }}</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Active') }}</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
@@ -379,9 +379,9 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date time</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Value</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Date time') }}</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Value') }}</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ __('Unit') }}</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>

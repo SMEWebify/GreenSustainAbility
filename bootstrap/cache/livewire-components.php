@@ -9,6 +9,7 @@
   'carbon-footprint' => 'App\\Http\\Livewire\\CarbonFootprint',
   'dashboard' => 'App\\Http\\Livewire\\Dashboard',
   'data-management' => 'App\\Http\\Livewire\\DataManagement',
+  'data-management-show' => 'App\\Http\\Livewire\\DataManagementShow',
   'incident-management' => 'App\\Http\\Livewire\\IncidentManagement',
   'incident-management-show' => 'App\\Http\\Livewire\\IncidentManagementShow',
   'indicator-monitoring' => 'App\\Http\\Livewire\\IndicatorMonitoring',

@@ -2,8 +2,9 @@
 
 namespace App\Models\Workflow;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Workflow\EmissionsInventories;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class EmissionCalculationsDatas extends Model
 {
@@ -16,4 +17,9 @@ class EmissionCalculationsDatas extends Model
         'date_of_calculation',
         'emission_calculation_comment',
     ];
+
+    public function EmissionsInventorie()
+    {
+        return $this->belongsTo(EmissionsInventories::class, 'emission_inventorie_id');
+    }
 }

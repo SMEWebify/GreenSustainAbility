@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('emissions_calculations_datas', function (Blueprint $table) {
+        Schema::create('emission_calculations_datas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('emission_inventorie_id')->constrained('emission_inventories');
             $table->string('emission_calculation_method');
