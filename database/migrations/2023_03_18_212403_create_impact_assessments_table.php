@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('impact_assessments', function (Blueprint $table) {
             $table->id();
-            $table->foreign('incident_id')->references('id')->on('incident_information');
+            $table->foreignId('incident_information_id')->constrained('incident_informations');
             $table->text('impact_assessment');
             $table->timestamps();
         });
