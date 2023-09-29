@@ -46,6 +46,9 @@ The Environmental Audit Management System allows users to schedule audits, recor
 
 System features include:
 
+- Dashboard
+![image](https://github.com/SMEWebify/GreenSustainAbility/assets/75578469/7ae316e7-124e-4274-911b-2359d3d1d644)
+
 - Environmental Incident Management: To track and manage environmental incidents, their root causes, and corrective actions.
 ![image](https://user-images.githubusercontent.com/75578469/227654532-ab4d6c7b-3fc5-4d17-ab2d-83901be6414c.png)
 
