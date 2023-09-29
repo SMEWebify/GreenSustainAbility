@@ -171,7 +171,7 @@ class AuditManagementShow extends Component
     public function changeStatu($idAction, $statuNumber){
         try{
             FollowUpActionsAudit::where('id',$idAction)->update(['status'=>$statuNumber]);
-            $this->incidentInformation->refresh();
+            $this->audit->refresh();
         }catch(\Exception $e){
             session()->flash('error',"Something goes wrong on update statu");
         }
