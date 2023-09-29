@@ -57,6 +57,8 @@ System features include:
 
 
 - Emissions Data Management: To manage emissions data, such as emission type, source, location, amount, date, etc.
+![image](https://user-images.githubusercontent.com/75578469/232337810-513fe3c8-f6fe-4f98-a3a9-0b40739b6f33.png)
+
 - Carbon Footprint Calculation: To calculate and manage carbon footprint data, including emissions, reductions, and targets.
 
 Each tool provides a set of functionalities to manage the data related to its theme, including data entry, editing, and reporting.
