@@ -12,7 +12,8 @@
         "laravel/tinker": "^2.6",
         "league/flysystem-aws-s3-v3": "3.0",
         "livewire/livewire": "^2.8",
-        "spatie/laravel-activitylog": "^4.7"
+        "spatie/laravel-activitylog": "^4.7",
+        "willvincent/feeds": "^2.5"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",
