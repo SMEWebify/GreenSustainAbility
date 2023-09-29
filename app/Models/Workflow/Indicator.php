@@ -28,6 +28,13 @@ class Indicator extends Model
         return $this->hasMany(IndicatorsDatas::class);
     }
 
+    public function DataHistoriesSum()
+    {
+        return $this->DataHistories->reduce(function ($totalValue, $DataHistories) {
+            return $totalValue + $DataHistories->indicator_value;
+            },0);
+    }
+
     public function AlarmsNotifications()
     {
         return $this->hasMany(AlarmsNotifications::class);

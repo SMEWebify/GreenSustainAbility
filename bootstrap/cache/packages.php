@@ -63,4 +63,15 @@
       'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
     ),
   ),
+  'willvincent/feeds' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'willvincent\\Feeds\\FeedsServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Feeds' => 'willvincent\\Feeds\\Facades\\FeedsFacade',
+    ),
+  ),
 );
