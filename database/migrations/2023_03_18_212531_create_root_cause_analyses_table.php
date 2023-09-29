@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('root_cause_analyses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('incident_information_id')->constrained('incident_informations');
+            $table->foreignId('incident_informations_id')->constrained('incident_informations');
             $table->text('root_cause_analysis');
             $table->timestamps();
         });

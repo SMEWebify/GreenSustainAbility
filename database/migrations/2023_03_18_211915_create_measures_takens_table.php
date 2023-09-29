@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('measures_takens', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('incident_information_id')->constrained('incident_informations');
+            $table->foreignId('incident_informations_id')->constrained('incident_informations');
             $table->text('action_taken');
             $table->text('teams_involved');
             $table->timestamps();

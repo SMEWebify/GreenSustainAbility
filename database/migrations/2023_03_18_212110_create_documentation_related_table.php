@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('documentation_related', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('incident_id')->constrained('incident_informations');
+            $table->foreignId('incident_informations_id')->constrained('incident_informations');
             $table->string('original_file_name');
             $table->string('name');
             $table->string('type');

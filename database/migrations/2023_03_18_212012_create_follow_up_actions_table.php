@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('follow_up_actions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('incident_id')->constrained('incident_informations');
+            $table->foreignId('incident_informations_id')->constrained('incident_informations');
             $table->text('corrective_action_description');
             $table->dateTime('implementation_timetable');
             $table->timestamps();

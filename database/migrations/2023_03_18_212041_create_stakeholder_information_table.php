@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('stakeholder_information', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('incident_id')->constrained('incident_informations');
+            $table->foreignId('incident_informations_id')->constrained('incident_informations');
             $table->string('name');
             $table->string('contact_details');
             $table->string('authorities_notified');
