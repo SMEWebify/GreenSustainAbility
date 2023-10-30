@@ -26,11 +26,12 @@
     <link href="../assets/css/custom.css" rel="stylesheet" />
 
     <!-- Alpine -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <!-- Chartjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> 
     <!-- livewire -->
-    @livewireStyles
+    @livewireStyles 
+    @livewireScripts
 
 </head>
 

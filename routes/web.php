@@ -37,16 +37,18 @@ use App\Http\Livewire\LaravelExamples\UserManagement;
 |
 */
 
-Route::get('/', function() {
-    return redirect('/login');
+Route::middleware('guest')->group(function () {
+    Route::get('/', function() {
+        return redirect('/login');
+    });
+
+    Route::get('/sign-up', SignUp::class)->name('sign-up');
+    Route::get('/login', Login::class)->name('login');
+
+    Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
+
+    Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 });
-
-Route::get('/sign-up', SignUp::class)->name('sign-up');
-Route::get('/login', Login::class)->name('login');
-
-Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
-
-Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
@@ -59,9 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/Data-Management', DataManagement::class)->name('data-management');
     Route::get('/Data-Management-{data}', DataManagementShow::class)->name('data-management-show');
     Route::get('/Carbon-Footprint', CarbonFootprint::class)->name('carbon-footprint');
-
-
-
 
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/license', License::class)->name('license');

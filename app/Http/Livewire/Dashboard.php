@@ -8,8 +8,11 @@ use App\Models\Workflow\IncidentInformations;
 
 class Dashboard extends Component
 {
+    
     public function render()
     {
+        
+        
         // INCIDENT SECTION 
         $incidentCounts = IncidentInformations::selectRaw('MONTH(date) as month, COUNT(*) as count')
             ->groupByRaw('MONTH(date)')
@@ -56,8 +59,8 @@ class Dashboard extends Component
         'items'     => $feed->get_items(),
         );
 
+            
         $dataRSS['items'] = array_slice($dataRSS['items'], 0, 3);
-
         return view('livewire.dashboard', [
             'months' => $months, 
             'counts' => $counts,

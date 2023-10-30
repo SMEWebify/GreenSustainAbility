@@ -2,8 +2,9 @@
 
 namespace App\Http\Livewire\Auth;
 
-use Livewire\Component;
 use App\Models\User;
+use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Login extends Component
 {
@@ -25,10 +26,11 @@ class Login extends Component
 
     public function login() {
         $credentials = $this->validate();
-        if(auth()->attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {
+        if(Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {
             $user = User::where(["email" => $this->email])->first();
             auth()->login($user, $this->remember_me);
-            return redirect()->intended('/dashboard');        
+            
+            return redirect()->intended('/dashboard'); 
         }
         else{
             return $this->addError('email', trans('auth.failed')); 
