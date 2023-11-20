@@ -2,8 +2,8 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -50,16 +50,16 @@ class Handler extends ExceptionHandler
     {
         // return parent::render($request, $exception);
         if ($exception instanceof HttpExceptionInterface) {
-            if (env('APP_ENV') === 'local' && $exception->getCode() == 403) {
+            if (env('APP_ENV') === 'production' && $exception->getCode() == 403) {
                 return response()->view('errors.403', [], 403);
             }
-            if (env('APP_ENV') === 'local' && $exception->getCode() == 404) {
+            if (env('APP_ENV') === 'production' && $exception->getCode() == 404) {
                 return response()->view('errors.404', [], 404);
             }
-            if (env('APP_ENV') === 'local' && $exception->getCode() == 419) {
+            if (env('APP_ENV') === 'production' && $exception->getCode() == 419) {
                 return response()->view('errors.419', [], 419);
             }
-            if (env('APP_ENV') === 'local' && $exception->getCode() == 500) {
+            if (env('APP_ENV') === 'production' && $exception->getCode() == 500) {
                 return response()->view('errors.500', [], 500);
             }
         }

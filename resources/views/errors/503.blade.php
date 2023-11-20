@@ -12,7 +12,7 @@
 <article>
     <h1>We&rsquo;ll be back soon!</h1>
     <div>
-        <p>Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment. If you need to you can always go to <a href="https://github.com/SMEWebify/WebErpMesv2">GIT</a>, otherwise we&rsquo;ll be back online shortly!</p>
+        <p>Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment. If you need to you can always go to <a href="https://github.com/SMEWebify/GreenSustainAbility">GIT</a>, otherwise we&rsquo;ll be back online shortly!</p>
         <p>&mdash; The Team</p>
     </div>
 </article>

@@ -51,6 +51,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/home', Dashboard::class)->name('home');
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/Incident-Management', IncidentManagement::class)->name('incident-management');
     Route::get('/Incident-Management-{incidentInformation}', IncidentManagementShow::class)->name('incident-management-show');
@@ -60,7 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/Audit-Management-{audit}', AuditManagementShow::class)->name('audit-management-show');
     Route::get('/Data-Management', DataManagement::class)->name('data-management');
     Route::get('/Data-Management-{data}', DataManagementShow::class)->name('data-management-show');
-    Route::get('/Carbon-Footprint', CarbonFootprint::class)->name('carbon-footprint');
 
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/license', License::class)->name('license');
@@ -70,4 +70,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
 });
+
+
 

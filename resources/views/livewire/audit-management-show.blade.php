@@ -279,7 +279,7 @@
                 <div class="card-header pb-0 p-3">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">{{ __('Follow-up of Actions') }}</h5>
+                            <h5 class="mb-0">{{ __('Follow-up of Actions for audit #') }}{{ $auditData->id  }}</h5>
                         </div>
                         <div>
                             <!-- Button trigger modal -->
@@ -401,7 +401,7 @@
                 <div class="card-header pb-0 p-3">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">{{ __('Management of Non-Conformities') }}</h5>
+                            <h5 class="mb-0">{{ __('Management of Non-Conformities for audit #') }}{{ $auditData->id  }}</h5>>
                         </div>
                         <div>
                             <!-- Button trigger modal -->

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>504 ERROR</title>
+<title>500 ERROR</title>
 
 <style id="" media="all">
   @import url(https://fonts.googleapis.com/css?family=opensans:500);
@@ -240,10 +240,10 @@ body{
     <div class="cloud x5"></div>
 </div>
 <div class='c'>
-    <div class='_404'>504</div>
+    <div class='_404'>500</div>
     <hr>
     <div class='_1'>Oops</div>
-    <div class='_2'>504 Gateway Timeout</div>
+    <div class='_2'>500 Internal Server Error</div>
     <a class='btn' href="http://green-sustain-ability.wem-project.org/dashboard">BACK TO EARTH</a>
 </div>
 </body>

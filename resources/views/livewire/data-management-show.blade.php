@@ -118,7 +118,7 @@
                         </div>
                         <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                             <ul>
-                                <li><strong>{{ __('Emission amount') }} :</strong> {{ $data->emission_amount }}</li>
+                                <li><strong>{{ __('Emission amount') }} :</strong> {{ $data->emission_amount }} ({{ $data->emission_type }})</li>
                                 <li><strong>{{ __('Date of emission') }} :</strong> {{ $data->date_of_emission }}</li>
                             </ul>
                         </div>

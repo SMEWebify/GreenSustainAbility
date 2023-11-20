@@ -69,19 +69,7 @@
                         <i style="font-size: 1rem;" class="fa fa-database ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(),['data-management']) ? 'text-white' : 'text-dark' }}"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Data Management</span>
-                </a>
-            </li>
-
-            <li class="nav-item pb-2">
-                <a class="nav-link {{ Route::currentRouteName() == 'carbon-footprint' ? 'active' : '' }}"
-                    href="{{ route('carbon-footprint') }}">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i style="font-size: 1rem;" class="fa fa-leaf  ps-2 pe-2 text-center
-                        {{ in_array(request()->route()->getName(),['carbon-footprint']) ? 'text-white' : 'text-dark' }}"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Carbon Footprint</span>
+                    <span class="nav-link-text ms-1">Data Management <br/> Carbon Footprint</span>
                 </a>
             </li>
             <li class="nav-item mt-2">

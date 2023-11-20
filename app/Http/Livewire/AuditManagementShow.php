@@ -111,6 +111,7 @@ class AuditManagementShow extends Component
 
     public function storeAction($idData){
 
+        dd('v');
         $validatedData = $this->validate([
             'action_description' => 'required',
             'responsible_party' => 'required',
