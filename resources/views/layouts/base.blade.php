@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Metas -->
-    @if(env('IS_DEMO'))
-        <x-demo-metas></x-demo-metas>
-    @endif
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <meta name="keywords" content="environment, management, incidents, emissions, monitoring, regulations, sustainable development, indicators, performance, measurements, reduction, compliance, reporting, database, calculations, visualization, planning, documentation." />
+    <meta name="description" content="Our environmental incident management application allows companies to track and manage environmental incidents, by recording incident information, actions taken, corrective actions, stakeholders involved, relevant documents, environmental impact, root cause analysis, etc. Use our app to take proactive action and avoid the recurrence of environmental incidents in the future.">
+    <meta itemprop="name" content="GreenSustainAbility" />
     <title>
         Green Sustain Ability
     </title>
@@ -31,8 +31,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> 
     <!-- livewire -->
     @livewireStyles 
-    @livewireScripts
-
 </head>
 
 <body class="g-sidenav-show bg-green-light">
